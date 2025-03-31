@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html class="style1" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>WordQuest Play</title>
 </head>
+
 <body>
     <div class="guesswordgame">
-        <img src="Images/Logo.png" style="width: 180px; height: 180px;">
+        <a href="index.html" id="logo"><img src="Images/Logo.png" class="logo-img"></a>
         <h1>WordQuest</h1>
         <ul>
             <li><a href="index.html">Main Menu</a></li>
-            <li><a href="wordquestplay.html">Play!</a></li>
-            <li><a href="howtoplay.html">How to Play!</a></li>
+            <li><a href="game.html">Play!</a></li>
+            <li><a href="how-to-play.html">How to Play!</a></li>
         </ul>
     </div>
-    <div class="gamecontent">
-        <div class="gamecontainer">
-            
+    <div class="game-content">
+        <div class="game-container">
+
             <h1>Find the Word!</h1>
-            <span id="leftspan"></span>
-            <li id="hintimg">
-                <div class="hintdropdown">
+            <span id="attempts-left"></span>
+            <li id="hint-img">
+                <div class="hint-dropdown">
                     <p id="hint"></p>
                 </div>
             </li>
-            <div id="gameplace">
-                
+            <div id="game-place">
+
             </div>
-            <div class="gamerow">
+            <div class="input-container">
                 <input type="text" id="wordinput" maxlength="1" placeholder="Type a letter!">
                 <button id="submitwordo">></button>
             </div>
 
         </div>
     </div>
-    <script src="guess.js"></script>
+    <script src="wordquest.js"></script>
 </body>
+
 </html>

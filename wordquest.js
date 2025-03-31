@@ -11,9 +11,9 @@ const gameData = {
     "ARTIFICIALINTELLIGENCE": "The simulation of human intelligence in machines to perform tasks like reasoning and problem-solving."
 };
 
-let gameplace = document.getElementById("gameplace");
+let gameplace = document.getElementById("game-place");
 let gameword = "";
-let leftspan = document.getElementById("leftspan");
+let attemptsleft = document.getElementById("attempts-left");
 let hint = document.getElementById("hint");
 let left = 3;
 let decrease;
@@ -55,9 +55,9 @@ document.getElementById("wordinput").addEventListener("input", function() {
   });
 
   document.getElementById("wordinput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {  // Enter tuşuna basıldıysa
-        let guess = document.getElementById("wordinput").value.toUpperCase(); // Kullanıcının tahminini al
-        updateWordDisplay(guess); // Doğru tahminleri güncelle
+    if (event.key === "Enter") {  
+        let guess = document.getElementById("wordinput").value.toUpperCase(); 
+        updateWordDisplay(guess); 
         document.getElementById("wordinput").value = "";
     }
   });
@@ -65,7 +65,7 @@ document.getElementById("wordinput").addEventListener("input", function() {
 document.getElementById("submitwordo").addEventListener("click", checkLetter);
 
 function checkLetter() {
-    let guess = document.getElementById("wordinput").value.toUpperCase(); // Kullanıcının girdiği harfi al ve büyük harfe çevir
+    let guess = document.getElementById("wordinput").value.toUpperCase(); 
     updateWordDisplay(guess);
     document.getElementById("wordinput").value = "";
 }
@@ -76,30 +76,30 @@ function updateWordDisplay(guess) {
 
     for (let i = 0; i < gamewordos.length; i++) {
         if (gamewordos[i] === guess) {
-            let pTag = letterDivs[i].querySelector("p"); // İlgili div içinde p etiketini seç
-            pTag.textContent = guess; // Doğru tahmin edilen harfi p etiketine ekle
+            let pTag = letterDivs[i].querySelector("p"); 
+            pTag.textContent = guess; 
             correctGuess = true;
         }
     }
 
     if (!correctGuess) {
-        let inputBox = document.getElementById("wordinput"); // Input alanını seç
-        inputBox.style.border = "2px solid red"; // Kırmızı çerçeve ekle
+        let inputBox = document.getElementById("wordinput"); 
+        inputBox.style.border = "2px solid red"; 
 
         setTimeout(function() {
-            inputBox.style.border = ""; // 2 saniye sonra çerçeveyi kaldır
+            inputBox.style.border = "";
         }, 2000);
 
-         // Eğer yanlış tahmin yapıldıysa, tüm letterBox div'lerini salla
+         
          letterDivs.forEach(box => box.classList.add("shake"));
 
          setTimeout(() => {
-             letterDivs.forEach(box => box.classList.remove("shake")); // 0.3sn sonra kaldır
+             letterDivs.forEach(box => box.classList.remove("shake")); 
          }, 300);
 
          decrease = left--;
 
-         leftspan.innerText = "You Have " + left + " Chances Left";
+         attemptsleft.innerText = "You Have " + left + " Chances Left";
          
          if(left < 1){
             alert("Game Over");

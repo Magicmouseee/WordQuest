@@ -55,10 +55,10 @@ ul li {
 }
 ul li a{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: black;
+    color: rgb(86, 59, 0);
 }
 a:hover{
-    color: #ff5500;
+    color: rgb(255, 85, 0)
 }
 
 
@@ -81,6 +81,9 @@ a:hover{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 2s forwards;
 }
 .guesswordgame h1{
     color: rgb(255, 85, 0);
@@ -89,11 +92,11 @@ a:hover{
     font-size: 60px;
 }
 
-.gamecontent{
+.game-content{
     display: flex;
     justify-content: center;
 }
-.gamecontainer{
+.game-container{
     background-color: rgba(245, 82, 0, 0.658);
     width: 460px;
     border-radius: 10px;
@@ -102,13 +105,16 @@ a:hover{
     align-items: center;
     flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 2s forwards;
 }
-#gameplace{
+#game-place{
     width: 80%;
     display: flex;
     justify-content: center;
 }
-.gamecontainer h1{
+.game-container h1{
     margin-top: 20px;
     margin-bottom: 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -144,10 +150,10 @@ a:hover{
     text-align: center; 
     vertical-align: middle;
     margin: 10px;
-    background-color: #f0f0f0; /* Daha açık bir gri */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti */
+    background-color: #f0f0f0; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 }
-.gamerow {
+.input-container {
 display: flex;
 justify-content: center;
 align-items: center;
@@ -159,15 +165,15 @@ margin: 15px;
     height: 35px;
     width: 35px;
     border-radius: 10px;
-    background-color: #6d2800; /* Altın sarısı */
-    color: white; /* Yazıyı daha belirgin yapmak için */
+    background-color: #9f4f00; 
+    color: white; 
     border: none;
     font-size: 15px;
     font-weight: 900;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
 }
 #submitwordo:hover{
     background-color: #be4f00;
@@ -185,20 +191,20 @@ margin: 15px;
     animation: shake 0.3s ease-in-out;
 }
     
-#leftspan{
+#attempts-left{
     color: rgb(212, 255, 0);
     font-family: sans-serif;
     font-weight: 500;
     margin-top: 10px;
 }
-#leftspan:empty {
+#attempts-left:empty {
     display: none;
 }
 #hint{
     color: rgb(208, 255, 0);
     text-align: center;
 }
-#hintimg{
+#hint-img{
     background-image: url(Images/info.png);
     background-size: cover;
     width: 40px;
@@ -211,7 +217,7 @@ margin: 10px;
 opacity: 0.7;
 
 }
-.hintdropdown{
+.hint-dropdown{
     display: none;
 border-radius: 20px;
 margin-right: 250px;
@@ -225,7 +231,7 @@ margin-right: 250px;
   z-index: 1;
 
 }
-#hintimg:hover .hintdropdown {
+#hint-img:hover .hint-dropdown {
     display: block;
   }
   
@@ -237,6 +243,9 @@ margin-right: 250px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 2s forwards;
 }
 .mainmenucontent h2{
     color: white;
@@ -278,8 +287,36 @@ margin-right: 250px;
     }
   }
 
+  @keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideRight{
+    0% {
+        transform: translateX(-20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes slideLeft{
+    0% {
+        transform: translateX(20%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 .mainmenucontent h3{
-    color: hwb(0 0% 100%);
+    color: darkgoldenrod;
+    text-shadow: 0.9px 0.9px rgb(0, 0, 0);
 
     
 }
@@ -300,7 +337,7 @@ font-family: Arial, Helvetica, sans-serif;    color: rgb(255, 255, 255);
     text-shadow: 1px 1px black;
 }
 .mainmenucontent button:hover{
-    background-color: #c37f00;
+    background-color: #e87400;
 }
 .guesswordgame img{
     border-radius: 20px;
@@ -309,22 +346,41 @@ font-family: Arial, Helvetica, sans-serif;    color: rgb(255, 255, 255);
 
 /* HOW TO PLAY ************************/ 
 
-.howtoplaycontent{
+.how-to-play-content{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideIn 2s forwards;
 }
-.howtoplaycontent h1{
+.how-to-play-content h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: white;
     text-shadow: 2px 2px black;
 }
-.howtoplaycontent h2{
+.how-to-play-content h2{
     font-family: Arial, Helvetica, sans-serif;
     color: #ff5500;
     text-shadow: 1px 1px black;
     margin: 10px;
+}
+#gif1, #gif3 {
+    animation: slideRight 2s;
+}
+#gif2{
+    animation: slideLeft 2s;
+}
+#logo:hover{
+    transform: translateY(2%);
+}
+#logo{
+    transition: all ease 0.5s;
+}
+.logo-img{
+    width: 180px; 
+    height: 180px;
 }
 
 
