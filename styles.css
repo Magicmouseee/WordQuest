@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #88dc11, #222222);
+    padding: 10px;
+}
+
+body{
+    background: linear-gradient(45deg, rgb(255, 167, 59), yellow);
+    height: 300vh;
+}
+.style1 body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.style3 body{
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+h1{
+    margin: 10px;
+    text-align: center;
+}
+p {
+    margin: 5px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+ul li a{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+}
+a:hover{
+    color: #ff5500;
+}
+
+
+/* Guesssssssssssssssssssss */
+
+.guesswordgame ul {
+    display: flex;
+    justify-content: center;
+}
+.guesswordgame ul li {
+    padding: 10px;
+    margin: 10px 0px 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    text-decoration: underline;
+    
+}
+.guesswordgame {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.guesswordgame h1{
+    color: rgb(255, 85, 0);
+    text-shadow: 2px 2px black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+}
+
+.gamecontent{
+    display: flex;
+    justify-content: center;
+}
+.gamecontainer{
+    background-color: rgba(245, 82, 0, 0.658);
+    width: 460px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#gameplace{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.gamecontainer h1{
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+.letterbox{
+    background-color: rgba(28, 12, 1, 0.342);
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2px;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+.letterbox p{
+    color: white;
+    font-size: 24px;
+    font-weight: 900;
+}
+.stickletter{
+    background-color: white;
+    height: 2px;
+    width: 70%;
+}
+#wordinput {
+    width: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    text-align: center; 
+    vertical-align: middle;
+    margin: 10px;
+    background-color: #f0f0f0; /* Daha açık bir gri */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti */
+}
+.gamerow {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 30%;
+margin: 15px;
+
+}
+#submitwordo{
+    height: 35px;
+    width: 35px;
+    border-radius: 10px;
+    background-color: #6d2800; /* Altın sarısı */
+    color: white; /* Yazıyı daha belirgin yapmak için */
+    border: none;
+    font-size: 15px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti */
+}
+#submitwordo:hover{
+    background-color: #be4f00;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+    
+#leftspan{
+    color: rgb(212, 255, 0);
+    font-family: sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+}
+#leftspan:empty {
+    display: none;
+}
+#hint{
+    color: rgb(208, 255, 0);
+    text-align: center;
+}
+#hintimg{
+    background-image: url(Images/info.png);
+    background-size: cover;
+    width: 40px;
+height: 40px;
+list-style: none;
+margin: 5px;
+display: flex;
+justify-content: center;
+margin: 10px;
+opacity: 0.7;
+
+}
+.hintdropdown{
+    display: none;
+border-radius: 20px;
+margin-right: 250px;
+  width: 300px;
+  position: absolute;
+  list-style: none;
+  background-color: #000000;
+  min-width: 160px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+}
+#hintimg:hover .hintdropdown {
+    display: block;
+  }
+  
+
+/* Main Menu //////////////////////////////*/
+
+.mainmenucontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mainmenucontent h2{
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    margin: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px black;
+    margin: 0px 20px;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    background-color: #aa660035;
+    border-radius: 10px;
+    padding: 20px;
+    font-variant: small-caps;
+    overflow: hidden;
+    position: relative;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mainmenucontent h2 span{
+    white-space: nowrap;
+    position: absolute;
+    animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+      transform: translateX(-100%); 
+    }
+    50% {
+      transform: translateX(0);   
+    }
+    100% {
+      transform: translateX(100%); 
+    }
+  }
+
+.mainmenucontent h3{
+    color: hwb(0 0% 100%);
+
+    
+}
+.mainmenucontent span{
+font-family: Arial, Helvetica, sans-serif;    color: rgb(255, 255, 255);
+}
+.mainmenucontent button{
+    height: 50px;
+    width: 140px;
+    background-color: #ff8000;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0px 4px black;
+    font-size: 20px;
+    margin: 30px;
+    text-shadow: 1px 1px black;
+}
+.mainmenucontent button:hover{
+    background-color: #c37f00;
+}
+.guesswordgame img{
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* HOW TO PLAY ************************/ 
+
+.howtoplaycontent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.howtoplaycontent h1{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+.howtoplaycontent h2{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ff5500;
+    text-shadow: 1px 1px black;
+    margin: 10px;
+}
+
+
+
+
