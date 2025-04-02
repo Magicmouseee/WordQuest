@@ -10,7 +10,6 @@ const gameData = {
 };
 
 let knownWords = new Set();
-
 let gameplace = document.getElementById("game-place");
 let gameword = "";
 let attemptsleft = document.getElementById("attempts-left");
@@ -33,6 +32,9 @@ function randomword() {
     const randomIndex = Math.floor(Math.random() * gamewordlist.length);
     gameword = gamewordlist[randomIndex];
 }
+
+console.log(knownWords)
+
 
 randomword();
 
@@ -65,6 +67,8 @@ function createdivs() {
 
 let letterDivs = document.querySelectorAll(".letterbox");
 
+/* Listeners *////////////////////////
+
 document.getElementById("wordinput").addEventListener("input", function () {
     this.value = this.value.toUpperCase();
 
@@ -86,6 +90,8 @@ function checkLetter() {
     document.getElementById("wordinput").value = "";
 }
 
+/* Listeners *////////////////////////
+
 function updateWordDisplay(guess) {
 
     let correctGuess = false;
@@ -99,6 +105,8 @@ function updateWordDisplay(guess) {
             if (Number(gamewordoscount) == Number(correctletter)) {
                 console.log("OLdu");
                 correctpanel.style.display = 'flex';
+                knownWords.add(gameword);
+                console.log(knownWords);
             }
         }
     }
