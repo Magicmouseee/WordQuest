@@ -20,7 +20,6 @@
     </div>
     <div class="game-content">
         <div class="game-container">
-
             <h1>Find the Word!</h1>
             <span id="attempts-left"></span>
             <li id="hint-img">
@@ -29,14 +28,21 @@
                 </div>
             </li>
             <div id="game-place">
-
             </div>
             <div class="input-container">
                 <input type="text" id="wordinput" maxlength="1" placeholder="Type a letter!">
                 <button id="submitwordo">></button>
             </div>
-
         </div>
+    </div>
+    <div id="nextpanel">
+        <div class="panelcontainer">
+            <a href="index.html"><img src="Images/Exit.png" style="width: 50px; position: absolute; margin-left: 170px;"></a>
+            <img src="Images/Stars.png" style="width: 150px;">
+            <h1>You Found the Word, Congratulations!</h1>
+            <a href="game.html"><button id="nextbutton" onclick="nextword()">Next Word!</button></a>
+        </div>
+                
     </div>
     <script src="wordquest.js"></script>
 </body>

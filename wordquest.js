@@ -7,9 +7,9 @@ const gameData = {
     "DATABASE": "A structured collection of data stored and accessed electronically.",
     "ALGORITHM": "A set of instructions designed to perform a specific task or solve a problem.",
     "GITHUB": "A platform for version control and collaboration, mainly used for code repositories.",
-    "MACHINELEARNING": "A subset of AI where systems learn from data to improve over time.",
-    "ARTIFICIALINTELLIGENCE": "The simulation of human intelligence in machines to perform tasks like reasoning and problem-solving."
 };
+
+let knownWords = new Set();
 
 let gameplace = document.getElementById("game-place");
 let gameword = "";
@@ -18,11 +18,23 @@ let hint = document.getElementById("hint");
 let left = 3;
 let decrease;
 let wordcount = 0;
+let correctletter = 0;
+let correctpanel = document.getElementById("nextpanel");
 
 
-const gamewordlist = Object.keys(gameData);
-const randomIndex = Math.floor(Math.random() * gamewordlist.length);
-gameword = gamewordlist[randomIndex];
+function randomword() {
+    const gamewordlist = Object.keys(gameData).filter(word => !knownWords.has(word));
+
+    if (gamewordlist.length === 0) {
+        alert("Tebrikler! Tüm kelimeleri tamamladın.");
+        return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * gamewordlist.length);
+    gameword = gamewordlist[randomIndex];
+}
+
+randomword();
 
 let gamewordos = gameword.split("");
 let gamewordoscount = gameword.split("").length;
@@ -34,38 +46,42 @@ hint.innerText = gameData[gameword];
 console.log("Selected word:", gameword);
 console.log("Hint:", gameData[gameword]);
 
-for (let i = 0; i < wordcount; i++) {
-    let gamediv = document.createElement('div');
-    gameplace.appendChild(gamediv);
-    gamediv.setAttribute("class", "letterbox")
+createdivs();
 
-    let gamep = document.createElement("p");
-    gamediv.appendChild(gamep);
+function createdivs() {
+    for (let i = 0; i < wordcount; i++) {
+        let gamediv = document.createElement('div');
+        gameplace.appendChild(gamediv);
+        gamediv.setAttribute("class", "letterbox")
 
-    let gamestick = document.createElement("div");
-    gamediv.appendChild(gamestick);
-    gamestick.setAttribute("class", "stickletter")
+        let gamep = document.createElement("p");
+        gamediv.appendChild(gamep);
+
+        let gamestick = document.createElement("div");
+        gamediv.appendChild(gamestick);
+        gamestick.setAttribute("class", "stickletter")
+    }
 }
-
 
 let letterDivs = document.querySelectorAll(".letterbox");
 
-document.getElementById("wordinput").addEventListener("input", function() {
+document.getElementById("wordinput").addEventListener("input", function () {
     this.value = this.value.toUpperCase();
-  });
 
-  document.getElementById("wordinput").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {  
-        let guess = document.getElementById("wordinput").value.toUpperCase(); 
-        updateWordDisplay(guess); 
+});
+
+document.getElementById("wordinput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        let guess = document.getElementById("wordinput").value.toUpperCase();
+        updateWordDisplay(guess);
         document.getElementById("wordinput").value = "";
     }
-  });
+});
 
 document.getElementById("submitwordo").addEventListener("click", checkLetter);
 
 function checkLetter() {
-    let guess = document.getElementById("wordinput").value.toUpperCase(); 
+    let guess = document.getElementById("wordinput").value.toUpperCase();
     updateWordDisplay(guess);
     document.getElementById("wordinput").value = "";
 }
@@ -76,34 +92,44 @@ function updateWordDisplay(guess) {
 
     for (let i = 0; i < gamewordos.length; i++) {
         if (gamewordos[i] === guess) {
-            let pTag = letterDivs[i].querySelector("p"); 
-            pTag.textContent = guess; 
+            let pTag = letterDivs[i].querySelector("p");
+            pTag.textContent = guess;
             correctGuess = true;
+            correctletter++;
+            if (Number(gamewordoscount) == Number(correctletter)) {
+                console.log("OLdu");
+                correctpanel.style.display = 'flex';
+            }
         }
     }
 
     if (!correctGuess) {
-        let inputBox = document.getElementById("wordinput"); 
-        inputBox.style.border = "2px solid red"; 
+        let inputBox = document.getElementById("wordinput");
+        inputBox.style.border = "2px solid red";
 
-        setTimeout(function() {
+        setTimeout(function () {
             inputBox.style.border = "";
         }, 2000);
 
-         
-         letterDivs.forEach(box => box.classList.add("shake"));
 
-         setTimeout(() => {
-             letterDivs.forEach(box => box.classList.remove("shake")); 
-         }, 300);
+        letterDivs.forEach(box => box.classList.add("shake"));
 
-         decrease = left--;
+        setTimeout(() => {
+            letterDivs.forEach(box => box.classList.remove("shake"));
+        }, 300);
 
-         attemptsleft.innerText = "You Have " + left + " Chances Left";
-         
-         if(left < 1){
+        decrease = left--;
+
+        attemptsleft.innerText = "You Have " + left + " Chances Left";
+
+        if (left < 1) {
             alert("Game Over");
-         }
+        }
     }
-
 }
+
+function nextword() {
+    
+}
+
+
