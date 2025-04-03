@@ -19,3 +19,5 @@ This project was created as a personal self-improvement project to enhance my sk
 
 ## Screenshots
 
+![Screenshot-1](Images/Screenshot-1.png)
+
