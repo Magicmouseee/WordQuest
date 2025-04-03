@@ -1,5 +1,7 @@
 # WordQuest
 
+![Game Logo](Images/WQLogo.png)
+
 This project is a simple word guessing game where you progress by guessing the given words.  
 
 ## Features  
@@ -13,4 +15,9 @@ This project was created as a personal self-improvement project to enhance my sk
 ## Technologies Used  
 - JavaScript  
 - HTML  
-- CSS  
+- CSS
+
+## Screenshots
+
+![Screenshot-1](Images/Screenshot-1.png)
+
