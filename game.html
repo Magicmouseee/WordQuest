@@ -44,6 +44,22 @@
         </div>
                 
     </div>
+    <div id="finishpanel">
+        <div class="panelcontainer">
+            <a href="index.html"><img src="Images/Exit.png" style="width: 50px; position: absolute; margin-left: 170px;"></a>
+            <img src="Images/Stars.png" style="width: 150px;">
+            <h1>Congratulations! You have finished all the words!</h1>
+            <a href="game.html"><button id="nextbutton" onclick="finishword()">Play Again!</button></a>
+        </div>     
+    </div>
+    <div id="gameoverpanel">
+        <div class="panelcontainer">
+            <a href="index.html"><img src="Images/Exit.png" style="width: 50px; position: absolute; margin-left: 170px;"></a>
+            <h1>GAME OVER!</h1>
+            <h2>Oops! You've used all your attempts. Try again!</h2>
+            <a href="game.html"><button id="nextbutton" onclick="finishword()">Play Again!</button></a>
+        </div>     
+    </div>
     <script src="wordquest.js"></script>
 </body>
 

@@ -10,6 +10,20 @@ const gameData = {
 };
 
 let knownWords = new Set();
+
+function loadKnownWords() {
+    let savedWords = localStorage.getItem("knownWords");
+    if (savedWords) {
+        knownWords = new Set(JSON.parse(savedWords));
+    }
+}
+
+loadKnownWords();
+
+function updateKnownWords() {
+    localStorage.setItem("knownWords", JSON.stringify([...knownWords]));
+}
+
 let gameplace = document.getElementById("game-place");
 let gameword = "";
 let attemptsleft = document.getElementById("attempts-left");
@@ -19,13 +33,15 @@ let decrease;
 let wordcount = 0;
 let correctletter = 0;
 let correctpanel = document.getElementById("nextpanel");
+let finishpanel = document.getElementById("finishpanel");
+let gameoverpanel = document.getElementById("gameoverpanel");
 
 
 function randomword() {
     const gamewordlist = Object.keys(gameData).filter(word => !knownWords.has(word));
 
     if (gamewordlist.length === 0) {
-        alert("Tebrikler! Tüm kelimeleri tamamladın.");
+        finishpanel.style.display = 'flex';
         return null;
     }
 
@@ -44,9 +60,6 @@ let gamewordoscount = gameword.split("").length;
 wordcount = gamewordoscount;
 
 hint.innerText = gameData[gameword];
-
-console.log("Selected word:", gameword);
-console.log("Hint:", gameData[gameword]);
 
 createdivs();
 
@@ -97,16 +110,17 @@ function updateWordDisplay(guess) {
     let correctGuess = false;
 
     for (let i = 0; i < gamewordos.length; i++) {
-        if (gamewordos[i] === guess) {
-            let pTag = letterDivs[i].querySelector("p");
+        let pTag = letterDivs[i].querySelector("p");
+
+        if (gamewordos[i] === guess && pTag.textContent === "") {
             pTag.textContent = guess;
             correctGuess = true;
             correctletter++;
+
             if (Number(gamewordoscount) == Number(correctletter)) {
-                console.log("OLdu");
                 correctpanel.style.display = 'flex';
                 knownWords.add(gameword);
-                console.log(knownWords);
+                updateKnownWords();
             }
         }
     }
@@ -131,13 +145,18 @@ function updateWordDisplay(guess) {
         attemptsleft.innerText = "You Have " + left + " Chances Left";
 
         if (left < 1) {
-            alert("Game Over");
+            gameoverpanel.style.display = "flex";
         }
     }
 }
 
-function nextword() {
-    
+function resetKnownWords() {
+    localStorage.removeItem("knownWords");
+    knownWords.clear();
+}
+
+function finishword() {
+    resetKnownWords();
 }
 
 
