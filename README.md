@@ -21,3 +21,7 @@ This project was created as a personal self-improvement project to enhance my sk
 
 ![Screenshot-1](Images/Screenshot-1.png)
 
+![Screenshot-2](Images/Screenshot-2.png)
+
+![Screenshot-3](Images/Screenshot-3.png)
+
