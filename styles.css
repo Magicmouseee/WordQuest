@@ -257,7 +257,6 @@ a:hover {
 .hint-dropdown {
     display: none;
     border-radius: 20px;
-    margin-right: 250px;
     width: 300px;
     position: absolute;
     list-style: none;
