@@ -29,3 +29,6 @@ This project was created to **improve my skills in JavaScript, HTML, and CSS** w
   <img src="Images/Screenshot-2.png" alt="Game Screenshot 2" width="30%">
   <img src="Images/Screenshot-3.png" alt="Game Screenshot 3" width="30%">
 </div>
+
+## Live Demo
+🔗 [Play the Game](https://magicmouseee.github.io/WordQuest/)  
